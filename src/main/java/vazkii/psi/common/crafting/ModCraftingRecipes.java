@@ -25,18 +25,18 @@ import vazkii.psi.common.lib.LibPieceNames;
 public class ModCraftingRecipes {
 
 	public static void init() {
-		PsiAPI.registerTrickRecipe("", "dustRedstone", new ItemStack(ModItems.material), new ItemStack(ModItems.cadAssembly));
+		PsiAPI.registerTrickRecipe("", "powderMana", new ItemStack(ModItems.material), new ItemStack(ModItems.cadAssembly));
 
-		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_INFUSION, "ingotGold",
+		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_INFUSION, "ingotManasteel",
 				new ItemStack(ModItems.material, 1, 1), 
 				new ItemStack(ModItems.cadAssembly));
-		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_GREATER_INFUSION, "gemDiamond",
+		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_GREATER_INFUSION, "manaDiamond",
 				new ItemStack(ModItems.material, 1, 2), 
 				new ItemStack(ModItems.cadAssembly, 1, 2));
-		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_EBONY_IVORY, new ItemStack(Items.COAL),
+		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_EBONY_IVORY, "quartzDark",
 				new ItemStack(ModItems.material, 1, 5), 
 				new ItemStack(ModItems.cadAssembly, 1, 2));
-		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_EBONY_IVORY, "gemQuartz",
+		PsiAPI.registerTrickRecipe(LibPieceNames.TRICK_EBONY_IVORY, "quartzMana",
 				new ItemStack(ModItems.material, 1, 6), 
 				new ItemStack(ModItems.cadAssembly, 1, 2));
 
