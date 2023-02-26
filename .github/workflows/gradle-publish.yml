@@ -33,11 +33,19 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-        
-    - name: Release jar
-      # You may pin to the exact commit or the version.
-      # uses: yakuhzi/release-asset@f96c41c3fdc53a02ab20a60014725490f91702a3
-      uses: yakuhzi/release-asset@v1.2.3
+    
+    - name: Get release
+      id: get_release
+      uses: bruceadams/get-release@v1.3.2
+      env:
+        GITHUB_TOKEN: ${{ github.TOKEN }}
+    
+    - name: Upload JAR
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        # File to upload to the release
-        file: vazkii/psi/Psi/r1.1-78/Psi-r1.1-78.jar
+        upload_url: ${{ steps.get_release.outputs.upload_url }}
+        asset_path: vazkii/psi/Psi/r1.1-78/Psi-r1.1-78.jar
+        asset_name: CustomPsi-1.12.2-r1.1-78.jar
+        asset_content_type: application/jar
