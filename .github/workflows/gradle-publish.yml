@@ -46,6 +46,26 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: ${{ steps.get_release.outputs.upload_url }}
-        asset_path: output/Psi/Psi-r1.1-78.jar
+        asset_path: build/libs/Psi-r1.1-78.jar
         asset_name: CustomPsi-1.12.2-r1.1-78.jar
+        asset_content_type: application/jar
+    
+    - name: Upload API JAR
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.get_release.outputs.upload_url }}
+        asset_path: build/libs/Psi-r1.1-78-api.jar
+        asset_name: CustomPsi-1.12.2-r1.1-78-api.jar
+        asset_content_type: application/jar
+    
+    - name: Upload Sources JAR
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.get_release.outputs.upload_url }}
+        asset_path: build/libs/Psi-r1.1-78-sources.jar
+        asset_name: CustomPsi-1.12.2-r1.1-78-sources.jar
         asset_content_type: application/jar
