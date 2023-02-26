@@ -33,13 +33,15 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-
-    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-    # the publishing section of your build.gradle
-    - name: Publish to GitHub Packages
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+    
+    - name: Release jar
+      # You may pin to the exact commit or the version.
+      # uses: djnicholson/release-action@e9a535b3eced09c460e07a84118fb74ae9b53236
+      uses: djnicholson/release-action@v2.10
       with:
-        arguments: publish
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.TOKEN }}
+        # GitHub auth token
+        token: ${{ secrets.TOKEN }}
+        # Name for the asset
+        asset-name: CustomPsi-1.12.2-r1.1-78.jar
+        # File to release
+        file: vazkii/psi/Psi/r1.1-78/Psi-r1.1-78.jar
